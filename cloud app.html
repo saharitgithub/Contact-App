@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <title>Cloud Contact</title>
+</head>
+<style type="text/css">
+  .headbar {
+    text-align: left;
+    margin-left: 10px;
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    padding-top: 15px;
+    padding-bottom: 20px;
+  }
+
+  .headbar2 {
+    text-align: right;
+    margin-left: 50px;
+    font-size: 15px;
+    font-weight: lighter;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(255, 255, 255);
+    padding-top: 15px;
+    margin-top: -40px;
+    padding-bottom: 20px;
+  }
+
+  .container-fluid {
+    width: 100%;
+    background-color: blue;
+    height: 80px;
+    border: 3px solid;
+    border-color: rgb(0, 132, 255);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cbox {
+    border: none;
+    height: 1000px;
+  }
+
+  .dbox {
+    width: 550px;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+  }
+
+  h1 {
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: blue;
+    margin-top: 40px;
+  }
+
+  .design {
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .button1 {
+    height: 100px;
+    width: 180px;
+    border: none;
+    margin-left: 110px;
+  }
+
+  .button1>img {
+    height: 100px;
+    width: 180px;
+  }
+
+  .pdesign {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    margin-left: 150px;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+
+  .butn1 {
+    width: 300px;
+    margin-left: 80px;
+    text-align: center;
+    background-color: blue;
+    font-size: small;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border: none;
+  }
+
+  .image {
+    size: 15px;
+    height: 15px;
+    width: 15px;
+  }
+</style>
+
+<body onload="loadingHtml()">
+  <div class="container-fluid px-4">
+    <div class="row gx-5">
+      <div class="headbar"><img height="20px" width="20px" src="Profile.jfif"> Cloud Contact <p class="headbar2"> Hello
+          Sultans Dine <img height="10px" width="10px" src="logout.png" /> Logout</p>
+      </div>
+    </div>
+  </div>
+  <div class="container px-4 cbox">
+    <div class="row gx-5">
+      <div class="col-sm-1 dbox">
+        <h1>Add Contact</h1>
+        <form name="myForm" id="form1" action="/action_page.php" method="dialog">
+          <input class="design" type="text" id="name" name="fname" placeholder="Name" />
+          <br>
+          <input class="design" type="email" id="email" name="femail" placeholder="Email" />
+          <br>
+          <input class="design" type="text" id="num" name="fnum" placeholder="Phone" />
+          <br>
+          <h6>Contact Type</h6>
+          <input type="radio" id="Personal" name="Personal" />
+          <label for="text1">Personal</label>
+          <input type="radio" id="Professional" name="Professional"/>
+          <label for="text1">Professional</label>
+          <br>
+          <br>
+          <button class="button1"><img src="Capture.jfif">
+          </button>
+          <br>
+          <p class="pdesign">my-image.jpg</p>
+          <button class="butn1" name="button" id="btn1">Add Contact</button>
+        </form>
+      </div>
+      <div class="col-sm-1 dbox">
+        <input class="design" type="text" id="fcontact" name="filtercontact" placeholder="Filter Contacts" />
+        <div>
+          <div class="card w-70">
+            <div class="card-body">
+              <h5 class="card-title">Ihsan Sarker</h5>
+              <p class="card-text"><img class="image" src="email.png" /> ihsan@gamail.com</p>
+              <p class="card-text"><img class="image" src="phone.jpg" /> 01719058105</p>
+              <a href="#" class="btn btn-dark" onclick="editContact(this)">Edit</a>
+              <a href="#" class="btn btn-danger" onclick="deleteContact(this)">Delete</a>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div>
+          <div class="card w-70">
+            <div class="card-body">
+              <h5 class="card-title">Erafi Ahonaf</h5>
+              <p class="card-text"><img class="image" src="email.png" /> erafi@gamail.com</p>
+              <p class="card-text"><img class="image" src="phone.jpg" /> 01875510966</p>
+              <a href="#" class="btn btn-dark" onclick="editContact(this)">Edit</a>
+              <a href="#" class="btn btn-danger" onclick="deleteContact(this)">Delete</a>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div>
+          <div class="card w-70" id="card-container">
+          </div>
+        </div>
+        <br>
+        <div>
+          <div class="card w-70" id="parentCard">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+<script>
+
+    const txt1 = document.getElementById('name');
+    const txt2 = document.getElementById('email');
+    const txt3 = document.getElementById('num');
+    const btn1 = document.getElementById('btn1');
+  
+    function addContact() {
+      var nameformat = /^[A-Za-z ]+$/;
+      if (txt1.value.match(nameformat)) {
+        console.log(txt1.value);
+      }
+      else {
+        alert("You have entered an invalid name!"); //The pop up alert for an invalid name
+        return false;
+      }
+      var mailformat = /^[_a-z0-9-]+(.[a-z0-9-]+)@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$/;
+      if (txt2.value.match(mailformat)) {
+        console.log(txt2.value);
+      }
+      else {
+        alert("You have entered an invalid email address!");    //The pop up alert for an invalid email address
+        return false;
+      }
+      var numformat = "^(\\+\\d{1,3}( )?)?((\\(\\d{1,3}\\))|\\d{1,3})[- .]?\\d{3,4}[- .]?\\d{4}$";
+      if (txt3.value.match(numformat)) {
+        console.log(txt3.value);
+      }
+      else {
+        alert("You have entered an invalid phone number!"); //The pop up alert for an invalid phonenumber
+        return false;
+      }
+      let card = `<div>
+      <div class="card w-70">
+        <div class="card-body">
+          <h5 class="card-title"> ${txt1.value}</h5>
+          <p class="card-text"><img class="image" src="email.png" /> ${txt2.value}</p>
+          <p class="card-text"><img class="image" src="phone.jpg" /> ${txt3.value}</p>
+          <a href="#" class="btn btn-dark" onclick="editContact(this)">Edit</a>
+          <a href="#" class="btn btn-danger" onclick="deleteContact(this)">Delete</a>
+        </div>
+      </div>
+    </div>
+    <br>`;
+      let parentCard = document.getElementById('parentCard')
+      parentCard.innerHTML += card;
+    }
+    btn1.addEventListener('click', addContact)
+    function loadingHtml() {
+    fetch('https://dummyjson.com/users?limit=5')
+      .then(res => res.json())
+      .then(json => json.users)
+      .then(users => {
+        console.log("API response data:", users);
+        const cardContainer = document.getElementById("card-container");
+        if (Array.isArray(users)) {
+          users.forEach(item => {
+            // Create HTML code for the card
+            const card = `<div>
+              <div class="card w-70">
+                <div class="card-body">
+                  <h5 class="card-title">${item.firstName}</h5>
+                  <p class="card-text"><img class="image" src="email.png" /> ${item.email}</p>
+                  <p class="card-text"><img class="image" src="phone.jpg" /> ${item.phone}</p>
+                  <a href="#" class="btn btn-dark" onclick="editContact(this)">Edit</a>
+                  <a href="#" class="btn btn-danger" onclick="deleteContact(this)">Delete</a>
+                </div>
+              </div>
+            </div>`;
+            //Append the card HTML code to the card container
+            cardContainer.innerHTML += card;
+          });
+        }
+      })
+      .catch(error => {
+        console.error("Failed to fetch data from API.", error);
+      });
+  }
+    function deleteContact(button) {
+      // Get the card element that contains the delete button
+      const card = button.closest(".card");
+  
+      // Remove the card element from the DOM
+      card.remove();
+    }
+  
+    function editContact(element) {
+    // Find the parent card element
+    const parentCard = element.closest('.card');
+  
+    // Get the name, email, and phone number from the card
+    const name = parentCard.querySelector('.card-title').textContent;
+    const email = parentCard.querySelectorAll('.card-text')[0].textContent.replace('Email:', '').trim();
+    const phone = parentCard.querySelectorAll('.card-text')[1].textContent.replace('Phone:', '').trim();
+  
+    // Set the values of the input fields to the values retrieved from the card
+    document.getElementById('name').value = name;
+    document.getElementById('email').value = email;
+    document.getElementById('num').value = phone;
+  
+    // Remove the card from the list of contacts
+    parentCard.remove();
+  }
+  
+  </script>
